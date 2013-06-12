@@ -1,17 +1,32 @@
 var Tarantula = require('tarantula'),
     fs = require('fs');
 
+/* helper */
+
+RegExp.quote = function(str) {
+    str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
+    str.replace(/\s/g, "\\s");
+    str.replace(/\S/g, "\\S");
+    str.replace(/\n/g, "\\n");
+    return str;
+};
+
+/* config */
+
 /*var start_page = 'https://wiki.piratenpartei.de/BE:Gebietsversammlungen/Friedrichshain-Kreuzberg/Antragsportal',
 	path = '/BE:Gebietsversammlungen/Friedrichshain-Kreuzberg/Antragsportal/',
     event = 'GVFK2012.1';*/
 
 var start_page = 'http://wiki.piratenpartei.de/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal',
     path = '/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal/',
-    event = 'GVTK2013.1';
+    event = 'GVTK2013.1',
+    regexID         = RegExp.quote(event)+"\/(.*?)_",
+    regexTitle      = '<span class="mw-headline" id="Antragstitel">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)',
+    regexAuthor     = '<span class="mw-headline" id="Antragsteller">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)',
+    regexType       = '<span class="mw-headline" id="Antragstyp">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)',
+    regexText       = '<span class="mw-headline" id="Antragstext">\\s*?[\\s\\S]*?</span></h3>\\s*?<div style="background-color:#ddd;padding:23px">\\n([\\s\\S]*?)?\\n</div>\\n\\s*?(?=<h3>)',
+    regexRemarks    = '<span class="mw-headline" id="Anmerkungen">\\s*?[\\s\\S]*?</span></h3>\\s*?([\\s\\S]*?)?\\n\\s*?(?=<h3>)';
 
-RegExp.quote = function(str) {
-    return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
-};
 
 
 var Motion = function() {
@@ -26,17 +41,17 @@ var Motion = function() {
         url: undefined,
         remarks: undefined,
         author: undefined
-    }
-}
+    };
+};
 
-var motions = [], 
+var motions = [],
     motionsIDs = [],
 	brain = {
 
     politeness: 200,
 
     shouldVisit: function(uri) {
-    	var re = new RegExp(RegExp.quote(path+event),"");
+    	var re = new RegExp(RegExp.quote(path+event), "");
         return uri.match(re);
     },
 
@@ -44,35 +59,34 @@ var motions = [],
         console.log(request.uri);
         if(request.uri != start_page) {
             var motion = new Motion(),
-                idRegEx = new RegExp(RegExp.quote(event)+"\/(.*?)_","");
+                idRegEx = new RegExp(regexID, "");
         
             motion.url = request.uri;
             match = request.uri.match(idRegEx);
             motion.id = match ? match[1] : 'fail';
-            match = body.match(/<span class=\"mw-headline\" id=\"Antragstitel\">\s*?[\s\S]*?<\/span><\/h3>\s*?<p>([\s\S]*?)\n<\/p>\s*?(?=<h3>)/m);
+
+            match = body.match(new RegExp(RegExp.quote(regexTitle), 'm'));
             motion.title = match ? match[1] : 'fail';
-            match = body.match(/<span class=\"mw-headline\" id=\"Antragsteller\">\s*?[\s\S]*?<\/span><\/h3>\s*?<p>([\s\S]*?)\n<\/p>\s*?(?=<h3>)/m);
+
+            match = body.match(new RegExp(regexAuthor, 'm'));
             motion.author = match ? match[1] : 'fail';
-            match = body.match(/<span class=\"mw-headline\" id=\"Antragstyp\">\s*?[\s\S]*?<\/span><\/h3>\s*?<p>([\s\S]*?)\n<\/p>\s*?(?=<h3>)/m);
+            
+            match = body.match(new RegExp(regexType, 'm'));
             motion.type = match ? match[1] : 'fail';
-            match = body.match(/<span class=\"mw-headline\" id=\"Antragstext\">\s*?[\s\S]*?<\/span><\/h3>\s*?<div style=\"background-color:#ddd;padding:23px\">\n([\s\S]*?)?\n<\/div>\n\s*?(?=<h3>)/m);
+            
+            match = body.match(new RegExp(regexText, 'm'));
             motion.text = match ? match[1] : 'fail';
-            console.log(motion.text);
-            match = body.match(/<span class=\"mw-headline\" id=\"Anmerkungen\">\s*?[\s\S]*?<\/span><\/h3>\s*?([\s\S]*?)?\n\s*?(?=<h3>)/m);
+            
+            match = body.match(new RegExp(regexRemarks, 'm'));
             motion.remarks = match ? match[1] : 'fail';
 
             if(motionsIDs.indexOf(motion.id) == -1) {
                 motions.push(motion);
                 motionsIDs.push(motion.id);
+                console.log(motion);
             }
-            
+
         }
-        //console.log(body);
-
-        //var matches = body.match(/===(.*)===[\s\S]*?(.*)^==/);
-
-
-
 
     },
 
@@ -83,8 +97,6 @@ var tarantula = new Tarantula(brain);
 
 tarantula.on('done', function() {
     console.log('done, found '+ motions.length + ' motions for #'+event);
-
-    
 
     // export as json
     var json = JSON.stringify(motions);
