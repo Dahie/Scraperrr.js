@@ -25,7 +25,9 @@ var Motion = function() {
 
 
 // read config
-fs.readFile("examples/gvtk131_config.json", 'utf8', function (err, data) {
+//var configFile = "examples/gvtk131_config.json";
+var configFile = "examples/lpts132_config.json";
+fs.readFile(configFile, 'utf8', function (err, data) {
     if (err) {
         console.log('Error: ' + err);
         return;
@@ -39,7 +41,7 @@ fs.readFile("examples/gvtk131_config.json", 'utf8', function (err, data) {
         politeness: 200,
 
         shouldVisit: function(uri) {
-        	var re = new RegExp(RegExp.quote(config.path+config.event), "");
+        	var re = new RegExp(config.detail, "");
             return uri.match(re);
         },
 
@@ -47,30 +49,37 @@ fs.readFile("examples/gvtk131_config.json", 'utf8', function (err, data) {
             console.log(request.uri);
             if(request.uri != config.start_page) {
                 var motion = new Motion(),
-                    idRegEx = new RegExp(config.regexID, "");
+                    idRegEx = new RegExp(config.regexIdUrl, "");
             
                 motion.url = request.uri;
                 match = request.uri.match(idRegEx);
-                motion.id = match ? match[1] : 'fail';
+                motion.id = match ? match[1] : undefined;
+
+                match = body.match(new RegExp(config.regexID, 'm'));
+                motion.id = match ? match[1] : undefined;
 
                 match = body.match(new RegExp(config.regexTitle, 'm'));
-                motion.title = match ? match[1] : 'fail';
+                motion.title = match ? match[1] : undefined;
 
                 match = body.match(new RegExp(config.regexAuthor, 'm'));
-                motion.author = match ? match[1] : 'fail';
+                motion.author = match ? match[1] : undefined;
                 
                 match = body.match(new RegExp(config.regexType, 'm'));
-                motion.type = match ? match[1] : 'fail';
+                motion.type = match ? match[1] : undefined;
+
+                match = body.match(new RegExp(config.regexTopic, 'm'));
+                motion.topic = match ? match[1] : undefined;
                 
                 match = body.match(new RegExp(config.regexText, 'm'));
-                motion.text = match ? match[1] : 'fail';
+                motion.text = match ? match[1] : undefined;
                 
                 match = body.match(new RegExp(config.regexRemarks, 'm'));
-                motion.remarks = match ? match[1] : 'fail';
+                motion.remarks = match ? match[1] : undefined;
 
                 if(motionsIDs.indexOf(motion.id) == -1) {
                     motions.push(motion);
                     motionsIDs.push(motion.id);
+                    console.log(motion);
                 }
 
             }
