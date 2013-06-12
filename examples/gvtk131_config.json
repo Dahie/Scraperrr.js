@@ -4,6 +4,7 @@
   "event": "GVTK2013.1",
   "detail": "/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal/GVTK2013.1/.*",
   "regexIdUrl": "GVTK2013.1\/(.*?)_",
+  "regexID": "GVTK2013.1\/(.*?)_",
   "regexTitle": "<span class=\"mw-headline\" id=\"Antragstitel\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)",
   "regexAuthor": "<span class=\"mw-headline\" id=\"Antragsteller\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)",
   "regexType": "<span class=\"mw-headline\" id=\"Antragstyp\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)",

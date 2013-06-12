@@ -7,7 +7,10 @@
    
   ],
   "dependencies": {
-    "tarantula": "0.0.1"
+    "tarantula": "0.0.1",
+    "commander": "~1.0.0",
+    "colors": "~0.6.0-1",
+    "prompt": "~0.2.3"
   },
   "devDependencies": {
   
@@ -20,9 +23,13 @@
     "spider",
     "crawl"
   ],
-  "repository": "git@github.com:Dahie/Scraperrr.js.git",
+  "repository": { "type": "git", "url": "git@github.com:Dahie/Scraperrr.js.git" },
   "main": "index",
   "bin": {
-    "express": "./bin/scraperrr"
+    "scraperrr": "./bin/scraperrr"
+  },
+  "engines": {
+    "node" : "~0.8",
+    "npm": "1"
   }
 }
