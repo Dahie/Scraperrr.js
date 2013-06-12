@@ -1,0 +1,11 @@
+{
+	"start_page": "http://wiki.piratenpartei.de/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal",
+  "path": "/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal/",
+  "event": "GVTK2013.1",
+  "regexID": "GVTK2013.1\/(.*?)_",
+  "regexTitle": "<span class=\"mw-headline\" id=\"Antragstitel\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)",
+  "regexAuthor": "<span class=\"mw-headline\" id=\"Antragsteller\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)",
+  "regexType": "<span class=\"mw-headline\" id=\"Antragstyp\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)",
+  "regexText": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h3>\\s*?<div style=\"background-color:#ddd;padding:23px\">\\n([\\s\\S]*?)?\\n</div>\\n\\s*?(?=<h3>)",
+  "regexRemarks": "<span class=\"mw-headline\" id=\"Anmerkungen\">\\s*?[\\s\\S]*?</span></h3>\\s*?([\\s\\S]*?)?\\n\\s*?(?=<h3>)"
+}

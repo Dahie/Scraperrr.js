@@ -5,29 +5,8 @@ var Tarantula = require('tarantula'),
 
 RegExp.quote = function(str) {
     str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
-    str.replace(/\s/g, "\\s");
-    str.replace(/\S/g, "\\S");
-    str.replace(/\n/g, "\\n");
     return str;
 };
-
-/* config */
-
-/*var start_page = 'https://wiki.piratenpartei.de/BE:Gebietsversammlungen/Friedrichshain-Kreuzberg/Antragsportal',
-	path = '/BE:Gebietsversammlungen/Friedrichshain-Kreuzberg/Antragsportal/',
-    event = 'GVFK2012.1';*/
-
-var start_page = 'http://wiki.piratenpartei.de/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal',
-    path = '/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal/',
-    event = 'GVTK2013.1',
-    regexID         = RegExp.quote(event)+"\/(.*?)_",
-    regexTitle      = '<span class="mw-headline" id="Antragstitel">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)',
-    regexAuthor     = '<span class="mw-headline" id="Antragsteller">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)',
-    regexType       = '<span class="mw-headline" id="Antragstyp">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)',
-    regexText       = '<span class="mw-headline" id="Antragstext">\\s*?[\\s\\S]*?</span></h3>\\s*?<div style="background-color:#ddd;padding:23px">\\n([\\s\\S]*?)?\\n</div>\\n\\s*?(?=<h3>)',
-    regexRemarks    = '<span class="mw-headline" id="Anmerkungen">\\s*?[\\s\\S]*?</span></h3>\\s*?([\\s\\S]*?)?\\n\\s*?(?=<h3>)';
-
-
 
 var Motion = function() {
     return {
@@ -44,72 +23,83 @@ var Motion = function() {
     };
 };
 
-var motions = [],
-    motionsIDs = [],
-	brain = {
 
-    politeness: 200,
+// read config
+fs.readFile("examples/gvtk131_config.json", 'utf8', function (err, data) {
+    if (err) {
+        console.log('Error: ' + err);
+        return;
+    }
+ 
+    var config = JSON.parse(data),
+        motions = [],
+        motionsIDs = [],
+    	brain = {
 
-    shouldVisit: function(uri) {
-    	var re = new RegExp(RegExp.quote(path+event), "");
-        return uri.match(re);
-    },
+        politeness: 200,
 
-    visit : function(request, response, body, $) {
-        console.log(request.uri);
-        if(request.uri != start_page) {
-            var motion = new Motion(),
-                idRegEx = new RegExp(regexID, "");
-        
-            motion.url = request.uri;
-            match = request.uri.match(idRegEx);
-            motion.id = match ? match[1] : 'fail';
+        shouldVisit: function(uri) {
+        	var re = new RegExp(RegExp.quote(config.path+config.event), "");
+            return uri.match(re);
+        },
 
-            match = body.match(new RegExp(RegExp.quote(regexTitle), 'm'));
-            motion.title = match ? match[1] : 'fail';
-
-            match = body.match(new RegExp(regexAuthor, 'm'));
-            motion.author = match ? match[1] : 'fail';
+        visit : function(request, response, body, $) {
+            console.log(request.uri);
+            if(request.uri != config.start_page) {
+                var motion = new Motion(),
+                    idRegEx = new RegExp(config.regexID, "");
             
-            match = body.match(new RegExp(regexType, 'm'));
-            motion.type = match ? match[1] : 'fail';
-            
-            match = body.match(new RegExp(regexText, 'm'));
-            motion.text = match ? match[1] : 'fail';
-            
-            match = body.match(new RegExp(regexRemarks, 'm'));
-            motion.remarks = match ? match[1] : 'fail';
+                motion.url = request.uri;
+                match = request.uri.match(idRegEx);
+                motion.id = match ? match[1] : 'fail';
 
-            if(motionsIDs.indexOf(motion.id) == -1) {
-                motions.push(motion);
-                motionsIDs.push(motion.id);
-                console.log(motion);
+                match = body.match(new RegExp(config.regexTitle, 'm'));
+                motion.title = match ? match[1] : 'fail';
+
+                match = body.match(new RegExp(config.regexAuthor, 'm'));
+                motion.author = match ? match[1] : 'fail';
+                
+                match = body.match(new RegExp(config.regexType, 'm'));
+                motion.type = match ? match[1] : 'fail';
+                
+                match = body.match(new RegExp(config.regexText, 'm'));
+                motion.text = match ? match[1] : 'fail';
+                
+                match = body.match(new RegExp(config.regexRemarks, 'm'));
+                motion.remarks = match ? match[1] : 'fail';
+
+                if(motionsIDs.indexOf(motion.id) == -1) {
+                    motions.push(motion);
+                    motionsIDs.push(motion.id);
+                }
+
             }
 
-        }
+        },
 
-    },
+        debug: false
+    };
 
-    debug: false
-};
+    var tarantula = new Tarantula(brain);
 
-var tarantula = new Tarantula(brain);
+    tarantula.on('done', function() {
+        console.log('done, found '+ motions.length + ' motions for #'+config.event);
 
-tarantula.on('done', function() {
-    console.log('done, found '+ motions.length + ' motions for #'+event);
+        // export as json
+        var json = JSON.stringify(motions);
+        fs.writeFile('out/'+config.event+'-'+Math.floor(Date.now() / 1000)+'.json', json, function(err) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("The file was saved!");
+            }
+        }); 
 
-    // export as json
-    var json = JSON.stringify(motions);
-    fs.writeFile('out/'+event+'-'+Math.floor(Date.now() / 1000)+'.json', json, function(err) {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log("The file was saved!");
-    }
-}); 
+    });
+
+    tarantula.start([config.start_page]);
 
 });
 
 
 
-tarantula.start([start_page]);
