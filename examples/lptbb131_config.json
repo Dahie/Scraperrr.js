@@ -1,0 +1,15 @@
+{
+  "start_page": "http://wiki.piratenbrandenburg.de/Parteitag/2013.1/Antragsportal",
+  "event": "LPTBB13.1",
+  "detail": true,
+  "detailUrl": "/Parteitag/2013.1/Antragsportal/.*",
+  "regexIdUrl": "Landesparteitag 2013\\.2/Antragsportal/\/(.*?)_",
+  "regexID": "<th style=\"text-align:left;\"><b>Antragsnummer</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
+  "regexTitle": "<p><big><b>Antragstitel</b></big>\\n</p>\\s*?<p>([\\s\\S]*?)\\s*?</p>\\s*?(?=<p><big>)",
+  "regexAuthor": "<th style=\"text-align:left;\"><b>Antragssteller</b>\\n</th>\\n<td>\\n<p>([\\s\\S]*?)\\n</p>\\n</td></tr>",
+  "regexType": "<th style=\"text-align:left;\"><b>Antragstyp</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
+  "regexSummary": "<th style=\"text-align:left;\"><b>Zusammenfassung des Antrags</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
+  "regexTopic": "<th style=\"text-align:left;\"><b>Gliederung</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
+  "regexText": "<p><big><b>Antragstext</b></big>\\n</p>\\n<div style=\"background-color:#ddd;padding:23px\">\\n([\\s\\S]*?)\\s*?(?=</div)",
+  "regexRemarks": "<p><big><b>Antragsbegründung</b></big>\\n</p>\\s*?([\\s\\S]*?)\\s*?(?=<p><big>)"
+}
