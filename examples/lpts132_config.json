@@ -1,8 +1,9 @@
 {
-	"start_page": "http://wiki.piratenpartei.de/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal",
+  "start_page": "http://wiki.piratenpartei.de/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal",
   "path": "/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal/",
-  "event": "LPTSL13.1",
-  "detail": "/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal/.*",
+  "event": "LPTSL13.2",
+  "detail": true,
+  "detailUrl": "/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal/.*",
   "regexIdUrl": "Landesparteitag 2013\\.2/Antragsportal/\/(.*?)_",
   "regexID": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsnummer</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)",
   "regexTitle": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragstitel</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)",

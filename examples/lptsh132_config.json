@@ -1,0 +1,15 @@
+{
+	"start_page": "https://wiki.piratenpartei.de/SH:LPT2013.2/Antr%C3%A4ge",
+  "path": "/SH:LPT2013.2/Anträge",
+  "event": "LPTSH13.2",
+  "detail": true,
+  "detailUrl": "/SH:LPT2013.2/Antr%C3%A4ge/.*",
+  "regexIdUrl": "Landesparteitag 2013\\.2/Antragsportal/\/(.*?)_",
+  "regexID": "<dl><dt> Antrag Nummer (\\S*?) an den",
+  "regexTitle": "<dt> Titel&nbsp;</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>",
+  "regexAuthor": "<dt> Beantragt von</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>",
+  "regexType": "",
+  "regexTopic": "",
+  "regexText": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)",
+  "regexRemarks": "<span class=\"mw-headline\" id=\"Begr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)"
+}
