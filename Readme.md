@@ -14,9 +14,9 @@ Not yet available, one day perhaps.
 
 Several example configuration are provided in the `examples`-folder.
 
-Change the referenced config file in `lib/tarantulus.js` and call this on the command line:
+Change the referenced config file in `lib/scraperrr.js` and call this on the command line:
 
-    $ node lib/tarantulus.js
+    $ node lib/scraperrr.js
 
 This will export a JSON data file with the motions from the wiki.
 
