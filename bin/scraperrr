@@ -38,5 +38,6 @@ if (argv.length > 0) {
 function main(configFile, outputFile) {
   var config = JSON.parse(fs.readFileSync(configFile, 'utf8')),
       scraperrr = new Scraperrr.init(config, outputFile);
+  config.debug = debug;
   scraperrr.run();
 }

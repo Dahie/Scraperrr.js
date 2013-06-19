@@ -10,6 +10,7 @@
     "tarantula": "0.0.1",
     "commander": "~1.0.0",
     "colors": "~0.6.0-1",
+    "optimist": "",
     "prompt": "~0.2.3"
   },
   "devDependencies": {
