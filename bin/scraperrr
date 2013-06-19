@@ -1,16 +1,13 @@
 #!/usr/local/bin/node
 
 var argv = require('optimist').usage('Usage: $0 -c [config] -o [output]')
-    .demand(['c','o'])
+    .demand(['c'])
     .alias('c', 'config')
-    .describe('f', 'Configuration file').argv
+    .describe('c', 'Configuration file').argv
   , prompt = require('prompt')
   , colors = require('colors')
   , fs = require('fs')
   , Scraperrr = require('../lib/scraperrr');
-
-
-
 
 
 if (argv.length > 0) {

@@ -16,7 +16,7 @@ Several example configuration are provided in the `examples`-folder.
 
 Change the referenced config file in `lib/scraperrr.js` and call this on the command line:
 
-    $ node lib/scraperrr.js
+    $ bin/scraperrr -c examples/gvtk131_config.json
 
 This will export a JSON data file with the motions from the wiki.
 
