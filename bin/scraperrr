@@ -1,0 +1,42 @@
+#!/usr/local/bin/node
+
+var argv = require('optimist').usage('Usage: $0 -c [config] -o [output]')
+    .demand(['c','o'])
+    .alias('c', 'config')
+    .describe('f', 'Configuration file').argv
+  , prompt = require('prompt')
+  , colors = require('colors')
+  , fs = require('fs')
+  , Scraperrr = require('../lib/scraperrr');
+
+
+
+
+
+if (argv.length > 0) {
+  
+} else {
+  
+  if(argv.v || argv.verbose) {
+    var debug = true;
+  }
+
+
+  if(argv.h || argv.help) {
+
+    // show help
+
+    console.log("scraperrr ist arrrrrrsome!");
+    return;
+
+  }
+
+  main(argv.c, argv.o);
+
+}
+
+function main(configFile, outputFile) {
+  var config = JSON.parse(fs.readFileSync(configFile, 'utf8')),
+      scraperrr = new Scraperrr.init(config, outputFile);
+  scraperrr.run();
+}

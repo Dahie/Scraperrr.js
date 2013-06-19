@@ -7,7 +7,7 @@
   "regexID": "<dl><dt> Antrag Nummer (\\S*?) an den",
   "regexTitle": "<dt> Titel&nbsp;</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>",
   "regexAuthor": "<dt> Beantragt von</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>",
-  "regexType": "",
+  "regexType": "Dies ist ein<b> ([\\s\\S]*?)? </b>",
   "regexTopic": "",
   "regexText": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)",
   "regexRemarks": "<span class=\"mw-headline\" id=\"Begr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)"
