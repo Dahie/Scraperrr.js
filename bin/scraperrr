@@ -8,10 +8,14 @@ var argv = require('optimist')
         describe : 'Verbose debug print out'
         //default : '/etc/passwd',
     })
+    .options('p', {
+        alias : 'politeness',
+        describe : 'Miliseconds to wait between HTTP requests.',
+        default : '200'
+    })
     .options('c', {
         alias : 'config',
         describe : 'Configuration file to load'
-        //default : '/etc/passwd',
     })
     .options('o', {
         alias : 'output',
@@ -30,6 +34,7 @@ main(argv.c, argv.o);
 function main(configFile, outputFile) {
   var config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
   config.debug = argv.v || argv.verbose || false;
+  config.politeness = argv.p;
   var scraperrr = new Scraperrr.init(config, outputFile);
   scraperrr.run();
 }

@@ -3,14 +3,45 @@
   "event": "LPTTH13.2",
   "detail": true,
   "detailUrl": "de/TH:Landesparteitag_2013.2/Antragsportal/.*",
-  "regexIdUrl": "Landesparteitag 2013\\.2/Antragsportal/\/(.*?)_",
-  "regexID": "<th style=\"text-align:left;\"><b>Antragsnummer</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
-  "regexTitle": "<h3> <span class=\"mw-headline\" id=\"Antragstitel\"> Antragstitel </span></h3>\\s*?<p>([\\s\\S]*?)\\s*?</p>\\s*?(?=<h3)",
-  "regexAuthor":  "<th style=\"text-align:left;\"><b>Antragsteller</b>\\n</th>\\n<td>\\n<p>([\\s\\S]*?)\\n</p>\\n</td></tr>",
-  "regexType":    "<th style=\"text-align:left;\"><b>Antragstyp</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
-  "regexTags":    "<th style=\"text-align:left;\"><b>Schlagwörter</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
-  "regexSummary": "<th style=\"text-align:left;\"><b>Zusammenfassung des Antrags</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
-  "regexTopic":   "<th style=\"text-align:left;\"><b>Gliederung</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>",
-  "regexText": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h3>\\s*?<div style=\"background-color:#ddd;padding:23px\">\\n([\\s\\S]*?)?\\n</div>\\n\\s*?(?=<h3>)",
-  "regexRemarks": "<span class=\"mw-headline\" id=\"Antragsbegr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h3>\\s*([\\s\\S]*?)?\\n\\s*?(?=<h3>)"
+  "data": [
+    {
+      "name": "id",
+      "required": true,
+      "regex": "<th style=\"text-align:left;\"><b>Antragsnummer</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
+    },
+    {
+      "name": "title",
+      "required": true,
+      "regex": "<h3> <span class=\"mw-headline\" id=\"Antragstitel\"> Antragstitel </span></h3>\\s*?<p>([\\s\\S]*?)\\s*?</p>\\s*?(?=<h3)"
+    },
+    {
+      "name": "author",
+      "regex": "<th style=\"text-align:left;\"><b>Antragsteller</b>\\n</th>\\n<td>\\n<p>([\\s\\S]*?)\\n</p>\\n</td></tr>"
+    },
+    {
+      "name": "type",
+      "required": true,
+      "regex": "<th style=\"text-align:left;\"><b>Antragstyp</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
+    },
+    {
+      "name": "tags",
+      "regex": "<th style=\"text-align:left;\"><b>Schlagwörter</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
+    },
+    {
+      "name": "summary",
+      "regex": "<th style=\"text-align:left;\"><b>Zusammenfassung des Antrags</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
+    },
+    {
+      "name": "topic",
+      "regex": "<th style=\"text-align:left;\"><b>Gliederung</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
+    },
+    {
+      "name": "text",
+      "regex": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h3>\\s*?<div style=\"background-color:#ddd;padding:23px\">\\n([\\s\\S]*?)?\\n</div>\\n\\s*?(?=<h3>)"
+    },
+    {
+      "name": "remarks",
+      "regex": "<span class=\"mw-headline\" id=\"Antragsbegr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h3>\\s*([\\s\\S]*?)?\\n\\s*?(?=<h3>)"
+    }
+  ]
 }
