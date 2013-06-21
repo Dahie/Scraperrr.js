@@ -1,7 +1,9 @@
 # Scraperrr.js
 
-Crawler for Motion-portals in Pirate-Party wikis.
-This extracts motions of a party assembly and exports them to JSON.
+Command-line-based web crawler configured by JSON configurations, defining what data fields to scrape from the visited websites and how to export them as JSON.
+
+This crawler was designed for motion portals in Pirate-Party wikis.
+This examples given extract motions of a party assembly and exports them to JSON to be used on [pirat.ly](http://www.pirat.ly) and [Spickerrr](http://spickerrr.tumblr.com).
 
 
 ## Installation
@@ -10,19 +12,29 @@ This extracts motions of a party assembly and exports them to JSON.
 
 Not yet available, one day perhaps.
 
+
 ## Quick Start
 
 Several example configuration are provided in the `examples`-folder.
 
-Change the referenced config file in `lib/scraperrr.js` and call this on the command line:
-
-    $ bin/scraperrr -c examples/gvtk131_config.json
+    $ scraperrr -c examples/gvtk131_config.json
 
 This will export a JSON data file with the motions from the wiki.
 
+## Options
+
+    $ scraperrr -v -c examples/gvtk131_config.json
+
+Verbose output for debugging. `--verbose` works as well.
+
+    $ scraperrr -p 500 -c examples/gvtk131_config.json
+
+Politeness, defines a waiting period in miliseconds between HTTP requests. `--politeness` works as well.
+
 ## Features
 
-  * few
+  * Flexible configuration files for scraping websites and exporting results to JSON file
+  * Waiting period between HTTP-requests
 
 ## More Information
 
