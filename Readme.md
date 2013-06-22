@@ -8,10 +8,7 @@ This examples given extract motions of a party assembly and exports them to JSON
 
 ## Installation
 
-    $ npm install -g scraperrr
-
-Not yet available, one day perhaps.
-
+    $ npm install scraperrr
 
 ## Quick Start
 
@@ -30,6 +27,10 @@ Verbose output for debugging. `--verbose` works as well.
     $ scraperrr -p 500 -c examples/gvtk131_config.json
 
 Politeness, defines a waiting period in miliseconds between HTTP requests. `--politeness` works as well.
+
+## Writing own configurations
+
+The config format is still in development and changes occasionally. Once, it is freezed full documentation will be provided.
 
 ## Features
 
