@@ -1,36 +1,43 @@
 {
   "start_page": "http://wiki.piratenpartei.de/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal",
   "event": "GVTK2013.1",
-  "detail": true,
-  "detailUrl": "/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal/GVTK2013.1/.*",
   "regexIdUrl": "GVTK2013.1\/(.*?)_",
-  "data": [
-  {
-      "name": "id",
-      "required": true,
-      "regex": "GVTK2013.1\/(.*?)_"
-    },
+  "contexts": [
     {
-      "name": "title",
-      "required": true,
-      "regex": "<span class=\"mw-headline\" id=\"Antragstitel\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)"
-    },
-    {
-      "name": "text",
-      "regex": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h3>\\s*?<div style=\"background-color:#ddd;padding:23px\">\\n([\\s\\S]*?)?\\n</div>\\n\\s*?(?=<h3>)"
-    },
-    {
-      "name": "type",
-      "required": true,
-      "regex": "<span class=\"mw-headline\" id=\"Antragstyp\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)"
-    },
-    {
-      "name": "remarks",
-      "regex": "<span class=\"mw-headline\" id=\"Anmerkungen\">\\s*?[\\s\\S]*?</span></h3>\\s*([\\s\\S]*?)?\\n\\s*?(?=<h3>)"
-    },
-    {
-      "name": "author",
-      "regex": "<span class=\"mw-headline\" id=\"Antragsteller\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)"
+      "start_page": "http://wiki.piratenpartei.de/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal",
+      "regexContext": ".*",
+      "detail": true,
+      "detailUrl": "/BE:Gebietsversammlungen/Treptow-K%C3%B6penick/Antragsportal/GVTK2013.1/.*",
+      "data": [
+        {
+            "name": "id",
+            "required": true,
+            "regex": "GVTK2013.1\/(.*?)_"
+          },
+          {
+            "name": "title",
+            "required": true,
+            "regex": "<span class=\"mw-headline\" id=\"Antragstitel\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)"
+          },
+          {
+            "name": "text",
+            "regex": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h3>\\s*?<div style=\"background-color:#ddd;padding:23px\">\\n([\\s\\S]*?)?\\n</div>\\n\\s*?(?=<h3>)"
+          },
+          {
+            "name": "type",
+            "required": true,
+            "regex": "<span class=\"mw-headline\" id=\"Antragstyp\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)"
+          },
+          {
+            "name": "remarks",
+            "regex": "<span class=\"mw-headline\" id=\"Anmerkungen\">\\s*?[\\s\\S]*?</span></h3>\\s*([\\s\\S]*?)?\\n\\s*?(?=<h3>)"
+          },
+          {
+            "name": "author",
+            "regex": "<span class=\"mw-headline\" id=\"Antragsteller\">\\s*?[\\s\\S]*?</span></h3>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<h3>)"
+          }
+        ]
     }
   ]
+  
 }

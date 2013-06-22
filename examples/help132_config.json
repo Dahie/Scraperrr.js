@@ -1,0 +1,46 @@
+{
+  "start_pages": [
+    "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/S%C3%84A", 
+    "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/Antr%C3%A4ge", 
+    "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/Sonstige_Antr%C3%A4ge", 
+    "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/Dringlichkeitsantr%C3%A4ge"
+  ],
+  "event": "HELP132",
+  "contexts": [
+    {
+      "start_page": "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/Antr%C3%A4ge",
+      "regexContext": "Programmanträge",
+      "detail": false,
+      "regexMotion": "<table ",
+      "data": [
+        {
+          "name": "id",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag ([\\s\\S]*?) - .*</span>"
+        },
+        {
+          "name": "title",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag .* - ([\\s\\S]*?)\\s</span>"
+        },
+        {
+          "name": "type",
+          "required": true
+        },
+        {
+          "name": "author",
+          "regex": "<p><b>Antragsteller:</b> ([\\s\\S]*?)\\n(?=</p>)"
+        },
+        {
+          "name": "text",
+          "regex": "<b>Antragstext:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Antrags|<p><br />\\n<b>Antrags)"
+        },
+        {
+          "name": "remarks",
+          "regex": "<b>Antragserläuterung:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Ergebnis|<p><br />\\n<b>Ergebnis)"
+        }
+      ]
+    }
+
+
+  ]
+  
+}
