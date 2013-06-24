@@ -17,9 +17,17 @@
 
         "event": {
             "type": "string",
-            "id": "start_pages",
-            "required": true,
+            "id": "event",
+            "default": "website",
+            "required": false,
             "description": "Event name of the Antragsportal to scrape."
+        },
+        "orderby": {
+            "type": "string",
+            "id": "orderby",
+            "required": false,
+            "default": "id",
+            "description": "Scraped results are ordered by this data field. Data field must be defined in context."
         },
 
         "contexts": {
