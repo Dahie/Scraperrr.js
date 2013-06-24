@@ -29,6 +29,13 @@
             "default": "id",
             "description": "Scraped results are ordered by this data field. Data field must be defined in context."
         },
+        "stripHTML": {
+            "type": "boolean",
+            "id": "stripHTML",
+            "required": false,
+            "default": false,
+            "description": "Remove HTML tags from all scraped fields."
+        },
 
         "contexts": {
             "type": "array",
