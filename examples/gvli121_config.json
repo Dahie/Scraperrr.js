@@ -9,15 +9,13 @@
       "data": [
         {
           "name": "id",
+          "required": true,
           "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag ([\\s\\S]*?) - .*</span>"
         },
         {
           "name": "title",
+          "required": true,
           "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag .* - ([\\s\\S]*?)\\s</span>"
-        },
-        {
-          "name": "type",
-          "required": true
         },
         {
           "name": "author",
@@ -25,6 +23,7 @@
         },
         {
           "name": "text",
+          "required": true,
           "regex": "<b>Antragstext:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Antrags|<p><br />\\n<b>Antrags)"
         },
         {

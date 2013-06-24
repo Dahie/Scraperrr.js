@@ -26,7 +26,6 @@ var argv = require('optimist')
   , prompt = require('prompt')
   , colors = require('colors')
   , fs = require('fs')
-  , validator = require('../lib/validate')
   , Scraperrr = require('../lib/scraperrr');
 
 
@@ -35,7 +34,7 @@ main(argv.c, argv.o);
 function main(configFile, outputFile) {
   var config = JSON.parse(fs.readFileSync(configFile, 'utf8')),
       schema = JSON.parse(fs.readFileSync('schema.json', 'utf8'));
-  validator.validate(config, schema);
+  Scraperrr.validate(config, schema);
 
   config.debug = argv.v || argv.verbose || false;
   config.politeness = argv.p;

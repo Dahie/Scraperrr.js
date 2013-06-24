@@ -26,7 +26,7 @@
     "crawl"
   ],
   "repository": { "type": "git", "url": "git@github.com:Dahie/Scraperrr.js.git" },
-  "main": "index",
+  "main": "lib/scraperrr",
   "bin": {
     "scraperrr": "./bin/scraperrr"
   },

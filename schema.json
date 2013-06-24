@@ -39,6 +39,22 @@
                       "id": "start_page",
                       "required": true
                     },
+                    "regexContext":
+                    {
+                      "type": "string",
+                      "id": "regexContext",
+                      "default": "",
+                      "required": false,
+                      "description": "If this regular expression matches, the visited website is part of the context."
+                    },
+                    "regexMotion":
+                    {
+                      "type": "string",
+                      "id": "regexMotion",
+                      "default": "",
+                      "required": false,
+                      "description": "Regular expression by which to split motion blocks within a single document body."
+                    },
                     "detail":
                     {
                       "type": "boolean",
