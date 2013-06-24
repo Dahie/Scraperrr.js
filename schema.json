@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "properties": {
+
+        "start_page": {
+            "type": "string",
+            "id": "start_page",
+            "default": "",
+            "description": "Entry point of scraping the website."
+        },
+        "start_pages": {
+            "type": "array",
+            "id": "start_pages",
+            "default": "",
+            "description": "Multiple entry point of scraping the website."
+        },
+
+        "event": {
+            "type": "string",
+            "id": "start_pages",
+            "required": true,
+            "description": "Event name of the Antragsportal to scrape."
+        },
+
+        "contexts": {
+            "type": "array",
+            "required": true,
+            "minItems": 1,
+            "description": "Set of rules by which to scrape given a URL schema.",
+            "items": [
+           		{
+           			"type": "object",
+           			"required": true,
+           			"properties":
+           				{
+                    "start_page":
+           					{
+                      "type": "string",
+                      "id": "start_page",
+                      "required": true
+                    },
+                    "detail":
+                    {
+                      "type": "boolean",
+                      "id": "detail",
+                      "required": true
+                    },
+                    "detailUrl":
+                    {
+                      "type": "string",
+                      "id": "detailUrl",
+                      "required": false
+                    },
+                    "data":
+                    {
+                      "type": "array",
+                      "required": true,
+                      "minItems": 1,
+                      "items": [
+                        {
+                          "type": "object",
+                          "required": true,
+                          "properties":
+                            {
+                              "name":
+                              {
+                                "type": "string",
+                                "id": "name",
+                                "required": true
+                              },
+                              "regex":
+                              {
+                                "type": "string",
+                                "id": "regex",
+                                "required": false
+                              },
+                              "required":
+                              {
+                                "type":"string",
+                                "id": "required",
+                                "required":false
+                              }
+                            }
+                        }
+                      ]
+                    }
+                  }
+              }
+       			],
+            "additionalProperties": false
+        }
+    },
+
+    "additionalProperties": false
+}
