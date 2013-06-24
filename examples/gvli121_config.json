@@ -1,33 +1,37 @@
 {
   "start_page": "https://wiki.piratenpartei.de/BE:Gebietsversammlungen/Lichtenberg/2012.1",
   "event": "GVLI2012.1",
-  "detail": false,
-  "regexMotion": "<table ",
-  "regexIdUrl": "GVLI2012.1\/(.*?)_",
-  "data": [
+  "contexts": [
     {
-      "name": "id",
-      "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag ([\\s\\S]*?) - .*</span>"
-    },
-    {
-      "name": "title",
-      "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag .* - ([\\s\\S]*?)\\s</span>"
-    },
-    {
-      "name": "type",
-      "required": true
-    },
-    {
-      "name": "author",
-      "regex": "<p><b>Antragsteller:</b> ([\\s\\S]*?)\\n(?=</p>)"
-    },
-    {
-      "name": "text",
-      "regex": "<b>Antragstext:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Antrags|<p><br />\\n<b>Antrags)"
-    },
-    {
-      "name": "remarks",
-      "regex": "<b>Antragserläuterung:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Ergebnis|<p><br />\\n<b>Ergebnis)"
+      "start_page": "https://wiki.piratenpartei.de/BE:Gebietsversammlungen/Lichtenberg/2012.1",
+      "detail": false,
+      "regexMotion": "<table ",
+      "data": [
+        {
+          "name": "id",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag ([\\s\\S]*?) - .*</span>"
+        },
+        {
+          "name": "title",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag .* - ([\\s\\S]*?)\\s</span>"
+        },
+        {
+          "name": "type",
+          "required": true
+        },
+        {
+          "name": "author",
+          "regex": "<p><b>Antragsteller:</b> ([\\s\\S]*?)\\n(?=</p>)"
+        },
+        {
+          "name": "text",
+          "regex": "<b>Antragstext:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Antrags|<p><br />\\n<b>Antrags)"
+        },
+        {
+          "name": "remarks",
+          "regex": "<b>Antragserläuterung:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Ergebnis|<p><br />\\n<b>Ergebnis)"
+        }
+      ]
     }
   ]
 }

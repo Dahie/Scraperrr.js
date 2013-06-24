@@ -1,35 +1,41 @@
 {
 	"start_page": "https://wiki.piratenpartei.de/SH:LPT2013.2/Antr%C3%A4ge",
   "event": "LPTSH13.2",
-  "detail": true,
-  "detailUrl": "/SH:LPT2013.2/Antr%C3%A4ge/.*",
-  "data": [
+  "contexts": [
     {
-      "name": "id",
-      "required": true,
-      "regex": "<dl><dt> Antrag Nummer (\\S*?) an den"
-    },
-    {
-      "name": "title",
-      "required": true,
-      "regex": "<dt> Titel&nbsp;</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>"
-    },
-    {
-      "name": "author",
-      "regex": "<dt> Beantragt von</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>"
-    },
-    {
-      "name": "type",
-      "required": true,
-      "regex": "Dies ist ein<b> ([\\s\\S]*?)? </b>"
-    },
-    {
-      "name": "text",
-      "regex": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)"
-    },
-    {
-      "name": "remarks",
-      "regexRemarks": "<span class=\"mw-headline\" id=\"Begr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)"
+      "start_page": "https://wiki.piratenpartei.de/SH:LPT2013.2/Antr%C3%A4ge",
+      "detail": true,
+      "detailUrl": "/SH:LPT2013.2/Antr%C3%A4ge/.*",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "<dl><dt> Antrag Nummer (\\S*?) an den"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<dt> Titel&nbsp;</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>"
+        },
+        {
+          "name": "author",
+          "regex": "<dt> Beantragt von</dt><dd>\\s*([\\s\\S]*?)\\s*?</dd>"
+        },
+        {
+          "name": "type",
+          "required": true,
+          "regex": "Dies ist ein<b> ([\\s\\S]*?)? </b>"
+        },
+        {
+          "name": "text",
+          "regex": "<span class=\"mw-headline\" id=\"Antragstext\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)"
+        },
+        {
+          "name": "remarks",
+          "regex": "<span class=\"mw-headline\" id=\"Begr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h2></dt><dd>\\s*?\\n</dd></dl>\\n([\\s\\S]*?)?\\n\\s*?(?=<dl)"
+        }
+      ]
     }
   ]
+  
 }

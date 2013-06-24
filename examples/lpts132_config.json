@@ -1,40 +1,44 @@
 {
   "start_page": "http://wiki.piratenpartei.de/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal",
-  "path": "/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal/",
   "event": "LPTSL13.2",
-  "detail": true,
-  "detailUrl": "/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal/.*",
-  "data": [
+  "contexts": [
     {
-      "name": "id",
-      "required": true,
-      "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsnummer</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
-    },
-    {
-      "name": "title",
-      "required": true,
-      "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragstitel</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
-    },
-    {
-      "name": "author",
-      "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsteller</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
-      },
-    {
-      "name": "type",
-      "required": true,
-      "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsart</div>\\s*?<p>([\\s\\S]*?)\\n(?=</p>)"
-    },
-    {
-      "name": "topic",
-      "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsgruppe</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
-    },
-    {
-      "name": "text",
-      "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragstext</div>\\s*?<div style=\"background-color:#ddd;padding:23px\">\\s*?([\\s\\S]*?)?</div>\\s*?(?=<div)?"
-      },
-    {
-      "name": "remarks",
-      "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsbegründung \\(nicht Teil des Antrags\\)</div>\\s*?<div style=\"background-color:#eee;padding:23px\">\\s*?([\\s\\S]*?)?\\s*?(?=<div)"
+      "start_page": "http://wiki.piratenpartei.de/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal",
+      "detail": true,
+      "detailUrl": "/SL:Mitgliederversammlungen/Landesparteitage/Landesparteitag_2013.2/Antragsportal/.*",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsnummer</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragstitel</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
+        },
+        {
+          "name": "author",
+          "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsteller</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsart</div>\\s*?<p>([\\s\\S]*?)\\n(?=</p>)"
+        },
+        {
+          "name": "topic",
+          "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsgruppe</div>\\s*?<p>([\\s\\S]*?)\\n</p>\\s*?(?=<div)"
+        },
+        {
+          "name": "text",
+          "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragstext</div>\\s*?<div style=\"background-color:#ddd;padding:23px\">\\s*?([\\s\\S]*?)?</div>\\s*?(?=<div)?"
+          },
+        {
+          "name": "remarks",
+          "regex": "<div style=\"margin: 0; margin-bottom: .3em; padding-top: .5em; padding-bottom: .17em; background: none; font-size: 132%; color: #000; font-weight: bold\">Antragsbegründung \\(nicht Teil des Antrags\\)</div>\\s*?<div style=\"background-color:#eee;padding:23px\">\\s*?([\\s\\S]*?)?\\s*?(?=<div)"
+        }
+      ]
     }
   ]
 }
