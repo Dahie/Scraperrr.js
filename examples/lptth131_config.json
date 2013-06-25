@@ -45,6 +45,28 @@
         {
           "name": "remarks",
           "regex": "<span class=\"mw-headline\" id=\"Antragsbegr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h3>\\s*([\\s\\S]*?)?\\n\\s*?(?=<h3>)"
+        },
+        {
+          "name": "result",
+          "default": 0,
+          "matchEnums": [
+            {
+              "regex": "<b>Zurückgezogen</b>",
+              "value": 2
+            },
+            {
+              "regex": "<b>Angenommen</b>",
+              "value": 1
+            },
+            {
+              "regex": "<b>Abgelehnt</b>",
+              "value": -1
+            },
+            {
+              "regex": "Antrag verändert angenommen",
+              "value": 3
+            }
+          ]
         }
       ]
     }
