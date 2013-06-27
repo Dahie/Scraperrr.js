@@ -1,6 +1,6 @@
-# Configuraton examples
+# Configuration examples
 
-These  examples show some of the configuration options possible with Scraperrr.js.
+These examples show some of the configuration options possible with Scraperrr.js.
 A full documentation of the config interface is provided on the wiki.
 
 Each example is a fully working scraperrr for the motions of a Pirate Party Germany assembly event. 
