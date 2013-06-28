@@ -17,7 +17,7 @@ Die Beispiele können kopiert und als Grundlage eigener Konfigurationen benutzt 
 
 ## Beispiele
 
-### LPTTH131, LPTBB131
+### LPTTH132, LPTBB131
 
 Die Antragsportale des LPT Thüringen und Brandenburg basieren auf dem Antragsportal des Bundesparteitags.
 
