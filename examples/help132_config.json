@@ -9,38 +9,112 @@
   "contexts": [
     {
       "start_page": "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/Antr%C3%A4ge",
-      "regexContext": "Programmanträge",
+      "regexContext": "Antr",
       "detail": false,
-      "regexMotion": "<table ",
+      "skip": false,
+      "regexMotion": "<h2> ",
       "data": [
         {
           "name": "id",
-          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag ([\\s\\S]*?) - .*</span>"
+          "regex": "<span class=\"mw-headline\" id=\".*\"> ([\\s\\S]*?): .*</span>",
+          "required": true
         },
         {
           "name": "title",
-          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag .* - ([\\s\\S]*?)\\s</span>"
+          "regex": "<span class=\"mw-headline\" id=\".*\"> PA-.*: ([\\s\\S]*?)\\s</span>",
+          "required": true
         },
         {
           "name": "type",
+          "value": "Programmantrag",
           "required": true
         },
         {
           "name": "author",
-          "regex": "<p><b>Antragsteller:</b> ([\\s\\S]*?)\\n(?=</p>)"
+          "regex": "<p><b>Antragsteller</b>\\n</p>\\n<div style=\"margin-left:30px\">\\n([\\s\\S]*?)(?=</div>)"
         },
         {
           "name": "text",
-          "regex": "<b>Antragstext:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Antrags|<p><br />\\n<b>Antrags)"
+          "regex": "<p><b>Text</b>\\n</p>\\n<div style=\"margin-left:30px\">\\s*([\\s\\S]*?)?(?=\\n<p><span)"
         },
         {
           "name": "remarks",
-          "regex": "<b>Antragserläuterung:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Ergebnis|<p><br />\\n<b>Ergebnis)"
+          "regex": "<b>Begründung</b></span>\\n</p>\\n<div style=\"margin-left:30px\">\\s*([\\s\\S]*?)?(?=</div>)"
+        }
+      ]
+    },
+    {
+      "start_page": "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/Sonstige_Antr%C3%A4ge",
+      "regexContext": "Sonstige_Antr",
+      "detail": false,
+      "skip": true,
+      "regexMotion": "<h2>",
+      "data": [
+        {
+          "name": "id",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> ([\\s\\S]*?): .*</span>",
+          "required": true
+        },
+        {
+          "name": "title",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> SA-.*: ([\\s\\S]*?)\\s</span>",
+          "required": true
+        },
+        {
+          "name": "type",
+          "value": "Sonstiger Antrag",
+          "required": true
+        },
+        {
+          "name": "author",
+          "regex": "<p><b>Antragsteller</b>\\n</p>\\n<div style=\"margin-left:30px\">\\n([\\s\\S]*?)(?=</div>)"
+        },
+        {
+          "name": "text",
+          "regex": "<p><b>Text</b>\\n</p>\\n<div style=\"margin-left:30px\">\\s*([\\s\\S]*?)?(?=\\n<p><span)"
+        },
+        {
+          "name": "remarks",
+          "regex": "<b>Begründung</b></span>\\n</p>\\n<div style=\"margin-left:30px\">\\s*([\\s\\S]*?)?(?=</div>)"
+        }
+      ]
+    },
+    {
+      "start_page": "http://wiki.piratenpartei.de/HE:Landesparteitage/2013.3/Dringlichkeitsantr%C3%A4ge",
+      "regexContext": "Dringlichk",
+      "detail": true,
+      "skip": true,
+      "regexMotion": "<h2>",
+      "data": [
+        {
+          "name": "id",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> ([\\s\\S]*?): .*</span>",
+          "required": true
+        },
+        {
+          "name": "title",
+          "regex": "<span class=\"mw-headline\" id=\".*\"> DA-.*: ([\\s\\S]*?)\\s</span>",
+          "required": true
+        },
+        {
+          "name": "type",
+          "value": "Dringlichkeitsantrag",
+          "required": true
+        },
+        {
+          "name": "author",
+          "regex": "<p><b>Antragsteller</b>\\n</p>\\n<div style=\"margin-left:30px\">\\n([\\s\\S]*?)(?=</div>)"
+        },
+        {
+          "name": "text",
+          "regex": "<p><b>Text</b>\\n</p>\\n<div style=\"margin-left:30px\">\\s*([\\s\\S]*?)?(?=\\n<p><span)"
+        },
+        {
+          "name": "remarks",
+          "regex": "<b>Begründung</b></span>\\n</p>\\n<div style=\"margin-left:30px\">\\s*([\\s\\S]*?)?(?=</div>)"
         }
       ]
     }
-
-
   ]
   
 }
