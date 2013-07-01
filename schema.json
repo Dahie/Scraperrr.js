@@ -49,76 +49,88 @@
            			"properties":
            				{
                     "start_page":
-           					{
-                      "type": "string",
-                      "id": "start_page",
-                      "required": true
-                    },
-                    "regexContext":
-                    {
-                      "type": "string",
-                      "id": "regexContext",
-                      "default": "",
-                      "required": false,
-                      "description": "If this regular expression matches, the visited website is part of the context."
-                    },
-                    "regexMotion":
-                    {
-                      "type": "string",
-                      "id": "regexMotion",
-                      "default": "",
-                      "required": false,
-                      "description": "Regular expression by which to split motion blocks within a single document body."
-                    },
-                    "detail":
-                    {
-                      "type": "boolean",
-                      "id": "detail",
-                      "required": true
-                    },
-                    "detailUrl":
-                    {
-                      "type": "string",
-                      "id": "detailUrl",
-                      "required": false
-                    },
-                    "data":
-                    {
-                      "type": "array",
-                      "required": true,
-                      "minItems": 1,
-                      "items": [
-                        {
-                          "type": "object",
-                          "required": true,
-                          "properties":
-                            {
-                              "name":
+             					{
+                        "type": "string",
+                        "id": "start_page",
+                        "required": true
+                      },
+                      "regexContext":
+                      {
+                        "type": "string",
+                        "id": "regexContext",
+                        "default": "",
+                        "required": false,
+                        "description": "If this regular expression matches, the visited website is part of the context."
+                      },
+                      "skip": {
+                        "type": "boolean",
+                        "id": "skip",
+                        "default": false,
+                        "required": false,
+                        "description": "If you want to skip a context for testing."
+                      },
+                      "regexMotion":
+                      {
+                        "type": "string",
+                        "id": "regexMotion",
+                        "default": "",
+                        "required": false,
+                        "description": "Regular expression by which to split motion blocks within a single document body."
+                      },
+                      "detail":
+                      {
+                        "type": "boolean",
+                        "id": "detail",
+                        "required": true
+                      },
+                      "detailUrl":
+                      {
+                        "type": "string",
+                        "id": "detailUrl",
+                        "required": false
+                      },
+                      "data":
+                      {
+                        "type": "array",
+                        "required": true,
+                        "minItems": 1,
+                        "items": [
+                          {
+                            "type": "object",
+                            "required": true,
+                            "properties":
                               {
-                                "type": "string",
-                                "id": "name",
-                                "required": true
-                              },
-                              "regex":
-                              {
-                                "type": "string",
-                                "id": "regex",
-                                "required": false
-                              },
-                              "required":
-                              {
-                                "type":"string",
-                                "id": "required",
-                                "required":false
+                                "name":
+                                {
+                                  "type": "string",
+                                  "id": "name",
+                                  "required": true
+                                },
+                                "regex":
+                                {
+                                  "type": "string",
+                                  "id": "regex",
+                                  "required": false
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "id": "value",
+                                  "required": false
+                                },
+                                "required":
+                                {
+                                  "type":"string",
+                                  "id": "required",
+                                  "required":false
+                                }
                               }
-                            }
-                        }
-                      ]
+                          }
+                        ]
+                      }
                     }
-                  }
               }
        			],
-            "additionalProperties": false
+            "additionalProperties": true
         }
     },
 
