@@ -14,12 +14,18 @@
             "default": "",
             "description": "Multiple entry point of scraping the website."
         },
+        "regexPortal": {
+            "type": "string",
+            "id": "regexPortal",
+            "default": "",
+            "description": "Regex by which we can detect the Antragsportal"
+        },
 
         "event": {
             "type": "string",
             "id": "event",
             "default": "website",
-            "required": false,
+            "optional": true,
             "description": "Event name of the Antragsportal to scrape."
         },
         "orderby": {
@@ -52,21 +58,21 @@
              					{
                         "type": "string",
                         "id": "start_page",
-                        "required": true
+                        "optional": false
                       },
                       "regexContext":
                       {
                         "type": "string",
                         "id": "regexContext",
                         "default": "",
-                        "required": false,
+                        "optional": true,
                         "description": "If this regular expression matches, the visited website is part of the context."
                       },
                       "skip": {
                         "type": "boolean",
                         "id": "skip",
                         "default": false,
-                        "required": false,
+                        "oprtional": true,
                         "description": "If you want to skip a context for testing."
                       },
                       "regexMotion":
@@ -74,20 +80,20 @@
                         "type": "string",
                         "id": "regexMotion",
                         "default": "",
-                        "required": false,
+                        "optional": true,
                         "description": "Regular expression by which to split motion blocks within a single document body."
                       },
                       "detail":
                       {
                         "type": "boolean",
                         "id": "detail",
-                        "required": true
+                        "optional": false
                       },
                       "detailUrl":
                       {
                         "type": "string",
                         "id": "detailUrl",
-                        "required": false
+                        "optional": true
                       },
                       "data":
                       {
@@ -104,24 +110,24 @@
                                 {
                                   "type": "string",
                                   "id": "name",
-                                  "required": true
+                                  "optional": false
                                 },
                                 "regex":
                                 {
                                   "type": "string",
                                   "id": "regex",
-                                  "required": false
+                                  "optional": true
                                 },
                                 "value": {
                                   "type": "string",
                                   "id": "value",
-                                  "required": false
+                                  "optional": true
                                 },
                                 "required":
                                 {
                                   "type":"string",
                                   "id": "required",
-                                  "required":false
+                                  "optional": true
                                 }
                               }
                           }
