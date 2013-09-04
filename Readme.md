@@ -20,6 +20,10 @@ This will export a JSON data file with the motions from the wiki.
 
 ## Options
 
+	$ scraperrr -c examples/gvtk131_config.json -o out/gv-anträge.json
+
+The resulting json export is saved in the defined output file.
+
     $ scraperrr -v -c examples/gvtk131_config.json
 
 Verbose output for debugging. `--verbose` works as well.
@@ -34,7 +38,7 @@ The config format is still in development and changes occasionally. Once, it is 
 
 ## Features
 
-  * Flexible configuration files for scraping websites and exporting results to JSON file
+  * Flexible configuration files for scraping websites and exporting results to a specified JSON file
   * Waiting period between HTTP-requests
 
 ## More Information
