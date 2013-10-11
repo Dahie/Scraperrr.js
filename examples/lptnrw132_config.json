@@ -1,6 +1,6 @@
 {
   "start_page": "http://wiki.piratenpartei.de/NRW:Landesparteitag_2013.2/Antr%C3%A4ge",
-  "event": "LPTNRW13.3",
+  "event": "LPTrop",
   "contexts": [
     {
       "start_page": "http://wiki.piratenpartei.de/NRW:Landesparteitag_2013.2/Antr%C3%A4ge",
@@ -36,7 +36,7 @@
         },
         {
           "name": "topic",
-          "regex": "<th style=\"text-align:left;\"><b>Gliederung</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
+          "regex": "<th style=\"text-align:left;\"><b>Antragsgruppe</b>\\n</th><td>([\\s\\S]*?)\\n</td></tr>"
         },
         {
           "name": "text",

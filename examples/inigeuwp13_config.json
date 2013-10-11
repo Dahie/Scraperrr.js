@@ -1,0 +1,92 @@
+{
+  "start_page": "https://wiki.piratenpartei.de/Initiative_gemeinsames_Europawahlprogramm/Antr%C3%A4ge_f%C3%BCr_die_Umfrage_2013",
+  "event": "Inigeuwp13",
+  "contexts": [
+    {
+      "start_page": "https://wiki.piratenpartei.de/Initiative_gemeinsames_Europawahlprogramm/Antr%C3%A4ge_f%C3%BCr_die_Umfrage_2013",
+      "detail": true,
+      "detailUrl": "/Initiative_gemeinsames_Europawahlprogramm/Antr%C3%A4ge_f%C3%BCr_die_Umfrage_2013/.*",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "<td><b>Nummer:</b>\\n</td><td>(.*?)\\n</td></tr>"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<td><b>Titel:</b>\\n</td><td colspan=\"5\">([\\s\\S]*?)\\n</td></tr>"
+        },
+        {
+          "name": "author",
+          "regex": "<td><b>Antragsteller:</b>\\n</td><td>([\\s\\S]*?)\\n</td></tr>"
+        },
+        {
+          "name": "type",
+          "required": true,
+          "value":"partieller Wahlprogrammantrag"
+        },
+        {
+          "name": "tags",
+          "regex": "<td><b>Schlagworte:</b>\\n</td><td>([\\s\\S]*?)\\n</td></tr>"
+        },
+        {
+          "name": "summary",
+          "regex": "<td><b>Zusammenfassung:</b>\\n</td><td>([\\s\\S]*?)\\n</td></tr>"
+        },
+        {
+          "name": "topic",
+          "regex": "<td><b>Antragsgruppe</b>\\n</td><td>([\\s\\S]*?)\\n</td></tr>"
+        },
+        {
+          "name": "text",
+          "regex": "<td><b>Text:</b>\\n</td><td colspan=\"5\" style=\"background-color:#ddd;padding:23px\">([\\s\\S]*?)\\s</td></tr>"
+        },
+        {
+          "name": "remarks",
+          "regex": "<td><b>Begründung:</b>\\n</td><td colspan=\"5\">([\\s\\S]*?)?\\s*?(?=</td></tr>)"
+        },
+        {
+          "name": "result",
+          "default": 0,
+          "matchEnums": [
+            {
+              "regex": "<b>Zurückgezogen</b>",
+              "value": 2
+            },
+            {
+              "regex": "<b>Angenommen</b>",
+              "value": 1
+            },
+            {
+              "regex": "<b>Abgelehnt</b>",
+              "value": -1
+            },
+            {
+              "regex": "Antrag verändert angenommen",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "default": 0,
+          "matchEnums": [
+            {
+              "regex": "<b>Geprüft</b>",
+              "value": 1
+            },
+            {
+              "regex": "<b>formal ungenügend</b>",
+              "value": -1
+            },
+            {
+              "regex": "Antrag verändert angenommen",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
