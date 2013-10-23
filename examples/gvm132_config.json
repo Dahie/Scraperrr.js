@@ -1,0 +1,37 @@
+{
+  "start_page": "http://wiki.piratenpartei.de/BE:Gebietsversammlungen/Mitte/GVM132/Antragsportal",
+  "event": "GVM132",
+  "regexPortal": "<table style=\"border-style:solid; border-width:2px; border-color:#F90;-moz-border-radius:10px; padding-left:10px; padding-right:10px;margin-bottom:20px;\">",
+  "contexts": [
+    {
+      "start_page": "http://wiki.piratenpartei.de/BE:Gebietsversammlungen/Mitte/GVM132/Antragsportal",
+      "detail": false,
+      "regexMotion": "<h3> <span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "id=\".*\">([\\s\\S]*?): .*</span></h3>"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "id=\".*\">.*: ([\\s\\S]*?)</span></h3>"
+        },
+        {
+          "name": "author",
+          "regex": "<dt>Antragsteller\n<dd>(.*)\n<dt>"
+        },
+        {
+          "name": "text",
+          "required": true,
+          "regex": "<dt>Text\\n<dd>([\\s\\S]*?)<dt>Ergebnis"
+        },
+        {
+          "name": "remarks",
+          "regex": "<dt>Begründung\\n<dd>([\\s\\S]*?)<dt>Antragsteller"
+        }
+      ]
+    }
+  ]
+}
