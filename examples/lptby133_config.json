@@ -1,0 +1,50 @@
+{
+  "start_page": "http://wiki.piratenpartei.de/BY:Landesparteitag_2013.3/Antragsfabrik",
+  "event": "LPTBY13.3",
+  "contexts": [
+    {
+      "start_page": "http://wiki.piratenpartei.de/BY:Landesparteitag_2013.3/Antragsfabrik",
+      "detail": true,
+      "detailUrl": "de/BY:Landesparteitag_2013.3/Antragsfabrik/.*_.*",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "BY:Landesparteitag 2013.3/Antragsfabrik/(.*)</h1>"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "Antragstitel</div>\\n<p>([\\s\\S]*?)?\\n</p>"
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller</div>\\n([\\s\\S]*?)?<div"
+        },
+        {
+          "name": "type",
+          "required": true,
+          "regex": "Antragstyp</div>\\n<p>([\\s\\S]*?)\\n"
+        },
+        {
+          "name": "summary",
+          "regex": "<th style=\"text-align:left;\"><b>Zusammenfassung des Antrags</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
+        },
+        {
+          "name": "topic",
+          "regex": "Gruppe</div>\\n([\\s\\S]*?)?<div"
+        },
+        {
+          "name": "text",
+          "regex": "<div style=\".*\">Antragstext</div>\\n<div style=\".*\">\n([\\s\\S]*?)<div style"
+        },
+        {
+          "name": "remarks",
+          "regex": "Antragsbegründung</div>\\n([\\s\\S]*?)?<div "
+        }
+
+      ]
+    }
+  ]
+  
+}
