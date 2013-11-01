@@ -19,7 +19,7 @@
         },
         {
           "name": "author",
-          "regex": "<th style=\"text-align:left;\"><b>Antragsteller</b>\\n</th>\\n<td>\\n<p>([\\s\\S]*?)\\n</p>\\n</td></tr>"
+          "regex": "<th style=\"text-align:left;\"><b>Antragsteller</b>\\n</th>\\n<td>([\\s\\S]*?)\\n</td></tr>"
         },
         {
           "name": "type",
