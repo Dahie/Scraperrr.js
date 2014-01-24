@@ -1,0 +1,41 @@
+{
+  "start_page": "https://wiki.piratenpartei.de/BE:Gebietsversammlungen/Lichtenberg/2014.1",
+  "event": "GVLIHO2014.1",
+  "regexPortal": "<table style=\"border-style:solid; border-width:2px; border-color:#F90;-moz-border-radius:10px; padding-left:10px; padding-right:10px;margin-bottom:20px;\">",
+  "contexts": [
+    {
+      "start_page": "https://wiki.piratenpartei.de/BE:Gebietsversammlungen/Lichtenberg/2014.1",
+      "detail": false,
+      "regexMotion": "<table ",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag ([\\s\\S]*?) - .*</span>"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<span class=\"mw-headline\" id=\".*\"> Antrag .* - ([\\s\\S]*?)\\s</span>"
+        },
+        {
+          "name": "type",
+          "value": "Versammlungsantrag"
+        },
+        {
+          "name": "author",
+          "regex": "<p><b>Antragsteller:</b> ([\\s\\S]*?)\\n(?=</p>)"
+        },
+        {
+          "name": "text",
+          "required": true,
+          "regex": "<b>Antragstext:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Antrags|<p><br />\\n<b>Antrags)"
+        },
+        {
+          "name": "remarks",
+          "regex": "<b>Antragserläuterung:</b>\\n</p>([\\s\\S]*?)?(?=<p><b>Ergebnis|<p><br />\\n<b>Ergebnis)"
+        }
+      ]
+    }
+  ]
+}
