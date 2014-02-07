@@ -125,8 +125,14 @@
                                 },
                                 "required":
                                 {
-                                  "type":"string",
+                                  "type":"boolean",
                                   "id": "required",
+                                  "optional": true
+                                },
+                                "group":
+                                {
+                                  "type": "integer",
+                                  "id": "group",
                                   "optional": true
                                 }
                               }
