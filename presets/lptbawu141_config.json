@@ -1,0 +1,51 @@
+{
+  "start_page": "https://wiki.piratenpartei.de/BW:Antragsfabrik/LPT2014.1",
+  "event": "LPTBAWU14.1",
+  "contexts": [
+    {
+      "start_page": "https://wiki.piratenpartei.de/BW:Antragsfabrik/LPT2014.1",
+      "detail": true,
+      "detailUrl": "/BW:Antragsfabrik/",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "Nr\\.</dt><dd> ([\\S]*?)\\n</dd><dt>"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<span class=\"antragstitel\">([\\s\\S]*?)</span>"
+        },
+        {
+          "name": "author",
+          "regex": "Beantragt von</dt><dd> ([\\s\\S]*?)\\s</dd>"
+        },
+        {
+          "name": "type",
+          "required": true,
+          "regex": "<dl><dt> ([\\s\\S]*?) Nr\\.</dt>"
+        },
+        {
+          "name": "summary",
+          "regex": "<span class=\"kurzbeschreibung\">([\\s\\S]*?)</span>"
+        },
+        {
+          "name": "topic",
+          "regex": "Programm</dt><dd>\\n</dd></dl>\\n<p>([\\s\\S]*?)\\n</p>"
+        },
+        {
+          "name": "text",
+          "regex": "(Antrag|Beantragte Änderungen)</dt><dd>.*\\n</dd></dl>\\n([\\s\\S]*?)\\n<dl>",
+          "group": 2
+        },
+        {
+          "name": "remarks",
+          "regex": "Begründung</dt><dd>.*\\n</dd></dl>\\n([\\s\\S]*?)\\n</div>"
+        }
+
+      ]
+    }
+  ]
+  
+}
