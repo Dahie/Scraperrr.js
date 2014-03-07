@@ -118,6 +118,11 @@
                                   "id": "regex",
                                   "optional": true
                                 },
+                                "selector":{
+                                  "type": "string",
+                                  "id": "selector",
+                                  "optional": true
+                                },
                                 "value": {
                                   "type": "string",
                                   "id": "value",

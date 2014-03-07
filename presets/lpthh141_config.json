@@ -1,0 +1,50 @@
+{
+  "start_page": "http://wiki.piratenpartei.de/HH:18._Landesparteitag/Antr%C3%A4ge",
+  "event": "LPTHH14.1",
+  "contexts": [
+    {
+      "start_page": "http://wiki.piratenpartei.de/HH:18._Landesparteitag/Antr%C3%A4ge",
+      "detail": false,
+      "regexMotion": "<h2> <span class=",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "\"mw-headline\" id=\".*\">\\s([\\wÄ]*?):.*<\/span>"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<div style=\".*\">([\\s\\S]*?)</div>"
+        },
+        {
+          "name": "author",
+          "selector": ".motion_author"
+        },
+        {
+          "name": "text",
+          "required": true,
+          "selector": ".motion_text"
+        },
+        {
+          "name": "remarks",
+          "selector": ".motion_remarks"
+        },
+        {
+          "name": "type",
+          "default": "Programmantrag",
+          "matchEnums": [
+            {
+              "regex": "SÄA\\d",
+              "value": "Satzungsänderungsantrag"
+            },
+            {
+              "regex": "PA\\d",
+              "value": "Programmantrag"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
