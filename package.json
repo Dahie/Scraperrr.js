@@ -1,7 +1,7 @@
 {
   "name": "scraperrr",
-  "description": "Web crawler configured by JSON configurations defining what data fields to scrape from the visited websites using regular expressions and how to export them as JSON",
-  "version": "0.5.1",
+  "description": "Web crawler configured by JSON configurations defining what data fields to scrape from the visited websites using regular expressions or DOM selectors and how to export them as JSON",
+  "version": "0.7.0",
   "author": "Daniel Senff <public@danielsenff.de>",
   "contributors": [
    
