@@ -8,27 +8,27 @@ This examples given extract motions of a party assembly and exports them to JSON
 
 ## Installation
 
-    $ npm install scraperrr
+    $ npm install -g scraperrr
 
 ## Quick Start
 
-Several example configuration are provided in the `examples`-folder.
+Several example configuration are provided in the `presets`-folder.
 
-    $ scraperrr -c examples/gvtk131_config.json
+    $ scraperrr -c presets/gvtk131_config.json
 
 This will export a JSON data file with the motions from the wiki.
 
 ## Options
 
-	$ scraperrr -c examples/gvtk131_config.json -o out/gv-anträge.json
+	$ scraperrr -c presets/gvtk131_config.json -o out/gv-anträge.json
 
 The resulting json export is saved in the defined output file.
 
-    $ scraperrr -v -c examples/gvtk131_config.json
+    $ scraperrr -v -c presets/gvtk131_config.json
 
 Verbose output for debugging. `--verbose` works as well.
 
-    $ scraperrr -p 500 -c examples/gvtk131_config.json
+    $ scraperrr -p 500 -c presets/gvtk131_config.json
 
 Politeness, defines a waiting period in miliseconds between HTTP requests. `--politeness` works as well.
 
