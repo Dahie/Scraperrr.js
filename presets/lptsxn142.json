@@ -1,0 +1,171 @@
+{
+  "start_pages": ["http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Satzung", "http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Grundsatzprogramm", "http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Wahlprogramm", "http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Sonstiges"],
+  "event": "LPTSXN14.2",
+  "contexts":
+  [
+    {
+      "start_page": "http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Satzung",
+      "detail": false,
+      "regexContext": "Satzung",
+      "regexMotion": "<h2><span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "([SÄA0-9]*) - (.*)</span></h2",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "([SÄA0-9]*) - (.*)</span></h2",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b> ([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Satzungsänderungsantrag"
+        },
+        {
+          "name": "topic",
+          "value": "Satzung"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n<\/p>([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\s<\/p>([\\s\\S\\n]*)<p><br \/>\\s<\/p>"
+        }
+      ]
+    },
+    {
+      "start_page": "http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Grundsatzprogramm",
+      "detail": false,
+      "regexContext": "Grundsatzprogramm",
+      "regexMotion": "<h2><span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "([GP0-9]*) - (.*)</span></h2",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "([GP0-9]*) - (.*)</span></h2",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b> ([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Grundsatzprogrammantrag"
+        },
+        {
+          "name": "topic",
+          "value": "Grundsatzprogramm"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n<\/p>([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\s<\/p>([\\s\\S\\n]*)<p><br \/>\\s<\/p>"
+        }
+      ]
+    },
+    {
+      "start_page": "http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Wahlprogramm",
+      "detail": false,
+      "regexContext": "Wahlprogramm",
+      "regexMotion": "<h2><span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "([GP0-9]*) - (.*)</span></h2",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "([GP0-9]*) - (.*)</span></h2",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b> ([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Wahlprogrammantrag"
+        },
+        {
+          "name": "topic",
+          "value": "Wahlprogramm"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n<\/p>([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\s<\/p>([\\s\\S\\n]*)<p><br \/>\\s<\/p>"
+        }
+      ]
+    },
+    {
+      "start_page": "http://wiki.piratenpartei.de/SN:Treffen/Landesparteitag/2014.2/Sonstiges",
+      "detail": false,
+      "regexContext": "Sonstiges",
+      "regexMotion": "<h2><span class=\"mw-headline\"",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "([SO0-9]*) - (.*)</span></h2",
+          "group": 1
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "([SO0-9]*) - (.*)</span></h2",
+          "group": 2
+        },
+        {
+          "name": "author",
+          "regex": "Antragsteller:<\/b> ([\\s\\S\\n]*)\\n<\/p><p><b>Antragstext"
+          },
+        {
+          "name": "type",
+          "required": true,
+          "value": "Sonstige Anträge"
+        },
+        {
+          "name": "topic",
+          "value": "Sonstiges"
+        },
+        {
+          "name": "text",
+          "regex": "Antragstext:<\/b>\\n<\/p>([\\s\\S\\n]*)<p><b>Begründung"
+          },
+        {
+          "name": "remarks",
+          "regex": "Begründung:<\/b>\\s<\/p>([\\s\\S\\n]*)<p><br \/>\\s<\/p>"
+        }
+      ]
+    }
+  ]
+}
