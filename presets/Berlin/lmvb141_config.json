@@ -1,0 +1,45 @@
+{
+  "start_page": "http://wiki.piratenpartei.de/BE:Parteitag/2014.1/Antragskommission/Antragsportal",
+  "event": "LMVB14.1",
+  "contexts": [
+    {
+      "start_page": "http://wiki.piratenpartei.de/BE:Parteitag/2014.1/Antragskommission/Antragsportal",
+      "detail": true,
+      "detailUrl": "de/BE:Parteitag/2014.1/Antragskommission/Antragsportal/.*",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "<h3> <span class=\"mw-headline\" id=\"Antragsnummer\"> Antragsnummer </span></h3>\\s*?</div><div style=\".*\">\\s<p>([\\s\\S]*?)\\s</p>"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<h3> <span class=\"mw-headline\" id=\"Antragstitel\"> Antragstitel </span></h3>\\s</div><div style=\".*\">\\s*?<p>([\\s\\S]*?)\\s*?</p>"
+        },
+        {
+          "name": "author",
+          "regex": "<h3> <span class=\"mw-headline\" id=\"Antragsteller\"> Antragsteller </span></h3>\\s</div><div style=\".*\">\\s*?<p>([\\s\\S]*?)\\s*?</p>"
+        },
+        {
+          "name": "type",
+          "required": true,
+          "regex": "<h3> <span class=\"mw-headline\" id=\"Antragstyp\"> Antragstyp </span></h3>\\s</div><div style=\".*\">\\s*?<p>([\\s\\S]*?)\\s*?</p>"
+        },
+        {
+          "name": "topic",
+          "regex": "<h3> <span class=\"mw-headline\" id=\"Antragsgruppe\"> Antragsgruppe </span></h3>\\s</div><div style=\".*\">\\s*?<p>([\\s\\S]*?)\\s*?</p>"
+        },
+        {
+          "name": "text",
+          "regex": "<h3> <span class=\"mw-headline\" id=\"Antragstext\"> Antragstext </span></h3>\\s</div><div style=\"clear:left;\"></div>\\s<div style=\".*\">\\s<p>([\\s\\S]*?)\\s</p>\\s</div>"
+        },
+        {
+          "name": "remarks",
+          "regex": "<span class=\"mw-headline\" id=\"Antragsbegr.C3.BCndung\">\\s*?[\\s\\S]*?</span></h3>\\s*([\\s\\S]*?)?\\n\\s*?(?=<h3>)"
+        }
+
+      ]
+    }
+  ]
+}

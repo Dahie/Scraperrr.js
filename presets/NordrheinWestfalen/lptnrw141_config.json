@@ -1,0 +1,57 @@
+{
+  "start_page": "http://wiki.piratenpartei.de/NRW:Landesparteitag_2014.1/Antr%C3%A4ge",
+  "event": "LPTrop",
+  "contexts": [
+    {
+      "start_page": "http://wiki.piratenpartei.de/NRW:Landesparteitag_2014.1/Antr%C3%A4ge",
+      "detail": true,
+      "detailUrl": "de/NRW:Landesparteitag_2014.1/Antr%C3%A4ge/.*",
+      "data": [
+        {
+          "name": "id",
+          "required": true,
+          "regex": "<b>Antragsnummer:</b>\\n</td><td style=\".*\">([\\S]*?)\\n"
+        },
+        {
+          "name": "title",
+          "required": true,
+          "regex": "<b>Antragstitel:</b>\\n</td><td style=\".*\">([\\S\\s]*?)\\n"
+        },
+        {
+          "name": "author",
+          "regex": "<b>Antragsteller:</b>\\n</td><td style=\".*\">([\\S\\s]*?)\\n"
+        },
+        {
+          "name": "type",
+          "required": true,
+          "regex": "<b>Antragstyp:</b>\\n</td><td style=\".*\">([\\S\\s]*?)\\n"
+        },
+        {
+          "name": "tags",
+          "regex": "<b>Schlagworte:</b>\\n</td><td style=\".*\">([\\S\\s]*?)\\n"
+        },
+        {
+          "name": "summary",
+          "regex": "<b>Zusammenfassung des Antrags:</b>\\n</td><td style=\".*\">([\\S\\s]*?)\\n</td>"
+        },
+        {
+          "name": "topic",
+          "regex": "<th style=\"text-align:left;\"><b>Antragsgruppe</b>\\n</th><td>([\\s\\S]*?)\\n</td></tr>"
+        },
+        {
+          "name": "text",
+          "regex": "<b>Antragstext:</b>\\n</td></tr>\\n<tr>\\n<td style=\".*\">([\\S\\s]*?)\\n</td>"
+        },
+        {
+          "name": "remarks",
+          "regex": "<b>Antragsbegründung:</b>\\n</td></tr>\\n<tr>\\n<td style=\".*\">([\\S\\s]*?)\\n</td>"
+        },
+        {
+          "name": "dependence",
+          "regex": "<b>Abhängig von Antrag:</b></td><td style=\".*\"><a .*>([\\S]*?)</a>\\n</td>"
+          }
+      ]
+    }
+  ]
+  
+}
